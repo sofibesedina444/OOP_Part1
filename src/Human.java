@@ -1,5 +1,5 @@
 public class Human {
-    private int yearOfBirth;
+    private final int yearOfBirth;
     private final String name;
     private final String town;
     private String jobTitle;
@@ -16,11 +16,7 @@ public class Human {
         } else {
             this.town = "Информация не указана";
         }
-        if (jobTitle != null && !jobTitle.isEmpty()){
-            this.jobTitle = jobTitle;
-        } else {
-            this.jobTitle = "Информация не указана";
-        }
+        setJobTitle(jobTitle);
     }
 
     public void displayHuman(String gender) {
@@ -32,6 +28,30 @@ public class Human {
                     + yearOfBirth + " году. Я работаю на должности " + jobTitle + ". Будем знакомы!");
         } else {
             System.out.println("Неверно указан пол человека!");
+        }
+    }
+
+    public int getYearOfBirth() {
+        return yearOfBirth;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getTown() {
+        return town;
+    }
+
+    public String getJobTitle() {
+        return jobTitle;
+    }
+
+    public void setJobTitle(String jobTitle) {
+        if (jobTitle != null && !jobTitle.isEmpty()){
+            this.jobTitle = jobTitle;
+        } else {
+            this.jobTitle = "Информация не указана";
         }
     }
 }
